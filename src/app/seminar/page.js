@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Tambah from "./tambah";
 import PendaftaranSeminar from "./pendaftaranSeminar";
-import "../../asset/css/seminar.css";
+import "../../styles/seminar.css";
 
 export default function page() {
   useEffect(() => {

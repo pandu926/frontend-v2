@@ -1,5 +1,7 @@
 "use client";
 import { useEffect } from "react";
+import Tambah from "../components/tambah";
+import Head from "next/head";
 
 export default function Home() {
   useEffect(() => {
@@ -23,7 +25,10 @@ export default function Home() {
       </div>
       <div className="seminar ml-5 mt-10 mr-5">
         <h4 className="mb-8">Daftar Seminar KP</h4>
-        <div className="w-full h-24 bg-white p-4">halo, Ahmad Pandu</div>
+        <div className="w-3/4 ml-10 h-24 bg-white rounded-lg p-4 shadow-lg items-center ">
+          <p className="ml-4 font-bold text-black">Seminar KP Gelombang 24</p>
+          <Tambah />
+        </div>
       </div>
     </>
   );

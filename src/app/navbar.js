@@ -11,26 +11,37 @@ export default function navbar() {
           <ul className="flex justify-between">
             <li>
               <Link href="/">
-                <Image src="/Home.svg" width={35} height={35} />
-                <p>Home</p>
+                <Image src="/Home.svg" width={48} height={48} />
               </Link>
             </li>
             <li>
-              <a href="#">
-                <Image src="/sertif.svg" width={40} height={40} />
-                <p>Riwayat</p>
-              </a>
+              <Link href="/riwayat">
+                <Image
+                  className="pt-3"
+                  src="/history.svg"
+                  width={45}
+                  height={45}
+                />
+              </Link>
             </li>
             <li className="place-content-center">
               <Link href="/sertifikat">
-                <Image src="/sertif.svg" width={40} height={40} />
-                <p>Sertifikat</p>
+                <Image
+                  className="pt-2"
+                  src="/sertif.svg"
+                  width={55}
+                  height={55}
+                />
               </Link>
             </li>
             <li className="place-content-center">
               <Link href="/profil">
-                <Image src="/profile.svg" width={40} height={40} />
-                <p>Profile</p>
+                <Image
+                  className="pt-1"
+                  src="/profile.svg"
+                  width={38}
+                  height={38}
+                />
               </Link>
             </li>
           </ul>

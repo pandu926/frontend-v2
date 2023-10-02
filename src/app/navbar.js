@@ -6,8 +6,8 @@ import Link from "next/link";
 export default function navbar() {
   return (
     <>
-      <div className="fixed bottom-0 w-full  text-white p-4">
-        <div className="container pl-5 pr-5 pb-3 ">
+      <div className="fixed bottom-0 h-16 w-full z-50 bg-indigo-500 text-white p-4">
+        <div className="container pl-5 pr-5 translate-y-[-1rem] ">
           <ul className="flex justify-between">
             <li>
               <Link href="/">
@@ -37,7 +37,7 @@ export default function navbar() {
             <li className="place-content-center">
               <Link href="/profil">
                 <Image
-                  className="pt-1"
+                  className="pt-2"
                   src="/profile.svg"
                   width={38}
                   height={38}

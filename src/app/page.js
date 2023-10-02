@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Tambah from "../components/tambah";
 import Head from "next/head";
 
-export default function Home() {
+export default function getStaticProps() {
   useEffect(() => {
     if (window.innerWidth >= 768) {
       alert("website tidak bekerja pada dekstop gunakan smartphone anda");

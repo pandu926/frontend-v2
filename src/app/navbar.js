@@ -1,16 +1,16 @@
 import React from "react";
-import "../styles/navbar.css";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function navbar() {
   return (
-    <>
+    <div className="navbar">
       <div className="fixed bottom-0 h-16 w-full z-50 bg-indigo-500 text-white p-4">
         <div className="container pl-5 pr-5 translate-y-[-1rem] ">
           <ul className="flex justify-between">
             <li>
-              <Link href="/">
+              <Link href="/dashboard">
                 <Image src="/Home.svg" width={48} height={48} />
               </Link>
             </li>
@@ -47,6 +47,6 @@ export default function navbar() {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 }

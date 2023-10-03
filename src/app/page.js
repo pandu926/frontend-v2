@@ -1,35 +1,40 @@
-"use client";
-import { useEffect } from "react";
-import Tambah from "../components/tambah";
-import Head from "next/head";
+import Image from "next/image";
+import "../styles/navbar.css";
+import Link from "next/link";
 
 export default function getStaticProps() {
-  useEffect(() => {
-    if (window.innerWidth >= 768) {
-      alert("website tidak bekerja pada dekstop gunakan smartphone anda");
-    }
-  }, []);
   return (
-    <>
-      <div className="header m-3">
-        <div className="flex justify-content: space-between; ">
-          <div className="w-1/6  p-4"></div>
-          <div className="w-full  p-4">halo, Ahmad Pandu</div>
-          <div className="w-1/6  p-4"></div>
-        </div>
+    <div>
+      <Image
+        className="mt-10 ml-10 mr-4"
+        src="/presenation.svg"
+        width={300}
+        height={230}
+      />
+      <div className="flex justify-center font-extrabold  text-[1.2rem] mb-10 mt-14">
+        Selamat Datang
+      </div>
+      <div className="font-extrabold whitespace-pre-wrap text-center text-[1rem]">
+        <p className="m-0">Di Sistem Ter integarsi Berkaitan Dengan</p>
+        <p className="m-0">
+          <span>{`Kerja KP Prodi Teknik Informatika `}</span>
+          <span className="text-[1.25rem]">{` `}</span>
+        </p>
+      </div>
+      <div className="flex justify-center text-2xl mt-10 font-extrabold">
+        Universitas Sains Al-Qur’an
       </div>
 
-      <div className="pengumuman ml-5 mt-10 mr-5">
-        <h4 className="mb-8">Pengumuman</h4>
-        <div className="w-full h-24 bg-white p-4">halo, Ahmad Pandu</div>
-      </div>
-      <div className="seminar ml-5 mt-10 mr-5">
-        <h4 className="mb-8">Daftar Seminar KP</h4>
-        <div className="w-3/4 ml-10 h-24 bg-white rounded-lg p-4 shadow-lg items-center ">
-          <p className="ml-4 font-bold text-black">Seminar KP Gelombang 24</p>
-          <Tambah />
+      <Link href="/dashboard">
+        <div className=" mt-10 flex w-3/5 translate-x-[5rem] rounded-md justify-center bg-white text-indigo-600  h-10 font-['Inter']">
+          <p className="mt-2 shadow-lg font-black ">MASUK</p>
         </div>
-      </div>
-    </>
+      </Link>
+      <Link href="/auth/masuk">
+        <div className=" mt-5 flex w-3/5 translate-x-[5rem] rounded-md justify-center bg-white text-indigo-600  h-10 font-['Inter']">
+          <p className="mt-2 shadow-lg font-black ">BUAT AKUN</p>
+        </div>
+      </Link>
+    </div>
   );
 }

@@ -13,9 +13,6 @@ export default function page() {
         Ahmad Pandu Subekti
       </h2>
       <div className="w-full h-[450px] bg-white ">
-        {/* <div className="top-4 h-8 rounded-md w-3/4 translate-x-[3rem] relative nim bg-indigo-700">
-          <div className="bg-white h-[] w-2/3 absolute  translate-y-[3px] translate-x-[90px]"></div>
-        </div> */}
         <div className="w-3/4 h-8 top-5 relative left-10">
           <div className="w-3/4 h-8 left-0 top-0 absolute bg-indigo-700 rounded" />
           <div className="left-[37px] top-[5px] absolute text-white text-base font-bold">

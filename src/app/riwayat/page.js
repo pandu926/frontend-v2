@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import Seminar from "./seminar";
 import Penyeminar from "./penyeminar";
+import protectRoute from "@/components/protectRoute";
 
-export default function getStaticProps() {
+function page() {
   const [isOpen, setOpen] = useState(false);
   const openModal = () => {
     setOpen(!isOpen);
@@ -39,3 +40,5 @@ export default function getStaticProps() {
     </div>
   );
 }
+
+export default protectRoute(page);

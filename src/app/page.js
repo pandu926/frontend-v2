@@ -25,12 +25,12 @@ export default function getStaticProps() {
         Universitas Sains Al-Qur’an
       </div>
 
-      <Link href="/dashboard">
+      <Link href="/login">
         <div className=" mt-10 flex w-3/5 translate-x-[5rem] rounded-md justify-center bg-white text-indigo-600  h-10 font-['Inter']">
           <p className="mt-2 shadow-lg font-black ">MASUK</p>
         </div>
       </Link>
-      <Link href="/auth/masuk">
+      <Link href="/register">
         <div className=" mt-5 flex w-3/5 translate-x-[5rem] rounded-md justify-center bg-white text-indigo-600  h-10 font-['Inter']">
           <p className="mt-2 shadow-lg font-black ">BUAT AKUN</p>
         </div>

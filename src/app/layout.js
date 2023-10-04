@@ -1,6 +1,8 @@
+"use client";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "./navbar";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,6 +13,11 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  useEffect(() => {
+    if (window.innerWidth >= 768) {
+      alert("website tidak bekerja pada dekstop gunakan smartphone anda");
+    }
+  }, []);
   return (
     <html lang="en">
       <body className={inter.className}>

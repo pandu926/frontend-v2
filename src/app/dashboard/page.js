@@ -1,32 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Tambah from "../../components/tambah";
-import jwt from "jsonwebtoken";
 import "../../styles/seminar.css";
-import Cookies from "js-cookie";
-export default function page() {
-  useEffect(() => {
-    if (window.innerWidth >= 768) {
-      alert("website tidak bekerja pada dekstop gunakan smartphone anda");
-    }
-    DataUser();
-  }, []);
+import protectRoute from "@/components/protectRoute";
 
-  const [user, setUser] = useState("");
-  function DataUser() {
-    const token = Cookies.get("access_token");
-    console.log(typeof token);
-    const data = jwt.verify(token, "1526333838");
-    setUser(data);
-  }
-
+function page({ data }) {
   return (
     <>
       <div className="header m-3">
         <div className="flex justify-content: space-between; ">
           <div className="w-1/6  p-4"></div>
-          <div className="w-full  p-4">halo, {user.nama}</div>
+          <div className="w-full  p-4">halo, {data.nama}</div>
           <div className="w-1/6  p-4"></div>
         </div>
       </div>
@@ -44,3 +28,5 @@ export default function page() {
     </>
   );
 }
+
+export default protectRoute(page);

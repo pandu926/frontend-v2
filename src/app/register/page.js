@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import InputLogin from "../../components/inputLogin";
 import Link from "next/link";
-import "../styles/navbar.css";
+import "../../styles/navbar.css";
 
 export default function page() {
   const { nim, setNim } = useState();

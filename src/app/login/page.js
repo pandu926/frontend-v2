@@ -1,12 +1,42 @@
 "use client";
+import jwt from "jsonwebtoken";
 import React, { useState } from "react";
 import Image from "next/image";
 import InputLogin from "../../components/inputLogin";
 import Link from "next/link";
+import "../../styles/navbar.css";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 export default function page() {
+  const router = useRouter();
   const [nim, setNim] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    axios
+      .post("http://localhost:8000/auth/login", { nim, password })
+      .then((response) => {
+        // Handle respons sukses (status kode 200 OK)
+        const data = response.data.accessToken;
+        Cookies.set("access_token", data, { expires: 7 });
+        router.push("/dashboard");
+      })
+      .catch((error) => {
+        if (error.response) {
+          // Handle respons dengan kode status 400
+          console.log("Error Kode Status:", error.response.status);
+          console.log("Pesan Error:", error.response.data);
+        } else if (error.request) {
+          // Handle kesalahan permintaan (misalnya, tidak ada respons dari server)
+          console.log("Tidak Ada Respons:", error.request);
+        } else {
+          // Handle kesalahan lainnya
+          console.log("Error Lainnya:", error.message);
+        }
+      });
+  };
 
   return (
     <div>
@@ -38,7 +68,8 @@ export default function page() {
             placeholder={"masukkan password"}
           />
           <button
-            type="submit"
+            onClick={handleLogin}
+            type="button"
             className="bg-indigo-700 w-72 h-11 mt-14 mb-10 ml-10 text-white rounded-md text-lg font-extrabold "
           >
             MASUK

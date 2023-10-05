@@ -16,7 +16,7 @@ export default function page() {
 
   const handleLogin = async () => {
     axios
-      .post("http://8.219.171.65:8000/auth/login", { nim, password })
+      .post("https://pandusubekti.tech/auth/login", { nim, password })
       .then((response) => {
         // Handle respons sukses (status kode 200 OK)
         const data = response.data.accessToken;

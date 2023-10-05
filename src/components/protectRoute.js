@@ -9,7 +9,7 @@ export default function protectRoute(WrappedComponent) {
   const Wrapper = (props) => {
     try {
       const token = Cookies.get("access_token");
-      const login = jwt.verify(token, "152633383");
+      const login = jwt.verify(token, "1526333838");
       return <WrappedComponent data={login} {...props} />;
     } catch (error) {
       return (

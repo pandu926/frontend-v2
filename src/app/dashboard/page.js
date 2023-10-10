@@ -6,7 +6,7 @@ import protectRoute from "@/components/protectRoute";
 
 function page({ data }) {
   return (
-    <>
+    <div>
       <div className="header m-3">
         <div className="flex justify-content: space-between; ">
           <div className="w-1/6  p-4"></div>
@@ -25,7 +25,7 @@ function page({ data }) {
           <Tambah />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

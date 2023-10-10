@@ -14,7 +14,7 @@ function page() {
   };
 
   return (
-    <div>
+    <>
       <div className="flex ml-5 mr-5 mt-10 justify-between">
         <h1
           onClick={openModal}
@@ -37,7 +37,7 @@ function page() {
       <div className={`mt-10 ml-5 ${isOpen ? "hidden" : ""}`}>
         <Penyeminar />
       </div>
-    </div>
+    </>
   );
 }
 

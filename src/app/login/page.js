@@ -9,14 +9,14 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 
-export default function page() {
+export default function Login() {
   const router = useRouter();
   const [nim, setNim] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
     axios
-      .post("http://8.219.171.65:8000/auth/login", { nim, password })
+      .post("https://pandusubekti.tech/auth/login", { nim, password })
       .then((response) => {
         // Handle respons sukses (status kode 200 OK)
         const data = response.data.accessToken;

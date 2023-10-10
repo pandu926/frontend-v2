@@ -8,25 +8,27 @@ import { useRouter } from "next/navigation";
 export default function protectRoute(WrappedComponent) {
   const Wrapper = (props) => {
     const router = useRouter();
-    useEffect(() => {
-      // Ambil token JWT dari cookie
-      const token = Cookies.get("access_token");
 
-      // Pastikan token ada sebelum mencoba verifikasi
-      if (token) {
-        try {
-          // Verifikasi token JWT
-          const login = jwt.verify(token, "1526333838");
-          return <WrappedComponent data={login} {...props} />;
-        } catch (error) {
-          // Tangani kesalahan jika token tidak valid
-          console.error("Error verifying JWT:", error);
+    // Ambil token JWT dari cookie
+    const token = Cookies.get("access_token");
 
-          // Redirect ke halaman login jika token tidak valid
-          router.push("/login");
-        }
+    // Pastikan token ada sebelum mencoba verifikasi
+    if (token) {
+      console.log(token);
+
+      try {
+        const login = jwt.verify(token, "1526333838");
+        console.log(token);
+        // Verifikasi token JWT
+        return <WrappedComponent data={login} {...props} />;
+      } catch (error) {
+        // Tangani kesalahan jika token tidak valid
+        console.error("Error verifying JWT:", error);
+
+        // Redirect ke halaman login jika token tidak valid
+        return router.push("/login");
       }
-    }, []);
+    }
   };
 
   return Wrapper;

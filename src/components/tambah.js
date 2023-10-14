@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Input from "./input";
 
-export default function Tambah() {
+export default function Tambah(props) {
   const [isOpen, setOpen] = useState(false);
   const [judul, setJudul] = useState("");
   const [tanggal, setTanggal] = useState("");

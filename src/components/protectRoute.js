@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import Cookies from "js-cookie";
 import jwt from "jsonwebtoken";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function protectRoute(WrappedComponent) {
   const Wrapper = (props) => {
@@ -29,12 +28,6 @@ export default function protectRoute(WrappedComponent) {
         // Redirect ke halaman login jika token tidak valid
         return router.push("/login");
       }
-    } else {
-      return (
-        <div>
-          <Link href="/login">login</Link>
-        </div>
-      );
     }
   };
 

@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+public/service-worker.js
+public/workbox-*.js
 
 # testing
 /coverage

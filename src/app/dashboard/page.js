@@ -54,7 +54,7 @@ function page({ data }) {
         <h4 className="mb-8">Daftar Seminar KP</h4>
         <div className="w-3/4 ml-10 h-24 bg-white rounded-lg p-4 shadow-lg items-center ">
           <p className="ml-4 font-bold text-black">{seminar.nama}</p>
-          <Tambah />
+          <Tambah seminar={seminar} user={data.id} />
         </div>
       </div>
     </div>

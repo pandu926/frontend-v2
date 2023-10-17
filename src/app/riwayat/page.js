@@ -4,7 +4,7 @@ import Seminar from "./seminar";
 import Penyeminar from "./penyeminar";
 import protectRoute from "@/components/protectRoute";
 
-function page() {
+function page({ data }) {
   const [isOpen, setOpen] = useState(false);
   const openModal = () => {
     setOpen(!isOpen);
@@ -32,7 +32,7 @@ function page() {
         </h1>
       </div>
       <div className={`mt-10 ml-5 ${isOpen ? "" : "hidden"}`}>
-        <Seminar />
+        <Seminar user={data.id} />
       </div>
       <div className={`mt-10 ml-5 ${isOpen ? "hidden" : ""}`}>
         <Penyeminar />

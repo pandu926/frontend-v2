@@ -14,11 +14,9 @@ export default function protectRoute(WrappedComponent) {
 
     // Pastikan token ada sebelum mencoba verifikasi
     if (token) {
-      console.log(token);
-
       try {
         const login = jwt.verify(token, "1526333838");
-        console.log(token);
+
         // Verifikasi token JWT
         return <WrappedComponent data={login} {...props} />;
       } catch (error) {

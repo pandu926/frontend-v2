@@ -15,6 +15,10 @@ export default function page() {
   const [email, setEmail] = useState("");
   const [hp, setHp] = useState("");
 
+  const [message, setMessege] = useState("");
+  const [toogle, setToogle] = useState(false);
+  const [color, setColor] = useState("");
+
   const router = useRouter();
 
   const handleClick = async () => {
@@ -29,13 +33,18 @@ export default function page() {
       })
       .then((response) => {
         // Handle respons sukses (status kode 200 OK)
+        setToogle(true);
+        setColor("text-green-500");
+        setMessege("pendaftaran sukses , mengalihkan ke login");
+
         router.push("/login");
       })
       .catch((error) => {
         if (error.response) {
           // Handle respons dengan kode status 400
-          console.log("Error Kode Status:", error.response.status);
-          console.log("Pesan Error:", error.response.data);
+          setToogle(true);
+          setColor("text-red-500");
+          setMessege("NIM sudah terdaftar");
         } else if (error.request) {
           // Handle kesalahan permintaan (misalnya, tidak ada respons dari server)
           console.log("Tidak Ada Respons:", error.request);
@@ -55,6 +64,13 @@ export default function page() {
         <h1 className="mt-5 mb-3 font-extrabold text-lg">BUAT AKUN</h1>
       </div>
       <div className="bg-white  ">
+        <h1
+          className={`flex capitalize pt-8 justify-center text-lg ${color} ${
+            toogle ? "" : "hidden"
+          } `}
+        >
+          {message}
+        </h1>
         <div className=" flex pt-8 justify-center text-xl text-indigo-700 font-extrabold" />
         <form>
           <InputLogin

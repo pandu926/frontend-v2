@@ -13,12 +13,18 @@ export default function Login() {
   const router = useRouter();
   const [nim, setNim] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessege] = useState("");
+  const [toogle, setToogle] = useState(false);
+  const [color, setColor] = useState("");
 
   const handleLogin = async () => {
     axios
       .post("https://pandusubekti.tech/auth/login", { nim, password })
       .then((response) => {
         // Handle respons sukses (status kode 200 OK)
+        setToogle(true);
+        setColor("text-green-500");
+        setMessege("login sukses , mengalihkan ke dashboard");
         const data = response.data.accessToken;
         Cookies.set("access_token", data, { expires: 7 });
         router.push("/dashboard");
@@ -26,8 +32,12 @@ export default function Login() {
       .catch((error) => {
         if (error.response) {
           // Handle respons dengan kode status 400
-          console.log("Error Kode Status:", error.response.status);
-          console.log("Pesan Error:", error.response.data);
+          setToogle(true);
+          setColor("text-red-500");
+          if (error.response.status == 404) {
+            return setMessege("pengguna tidak ada");
+          }
+          setMessege("kata sandi salah");
         } else if (error.request) {
           // Handle kesalahan permintaan (misalnya, tidak ada respons dari server)
           console.log("Tidak Ada Respons:", error.request);
@@ -49,6 +59,14 @@ export default function Login() {
       <div className="bg-white  ">
         <h1 className=" flex pt-8 justify-center text-xl text-indigo-700 font-extrabold">
           Selamat Datang Kembali
+        </h1>
+
+        <h1
+          className={`flex capitalize pt-8 justify-center text-lg ${color} ${
+            toogle ? "" : "hidden"
+          } `}
+        >
+          {message}
         </h1>
         <form>
           <InputLogin

@@ -26,15 +26,17 @@ function page({ data }) {
         </h1>
         <h1
           onClick={openModal}
-          className="text-center border-b-2 w-2/4 border-white font-bold text-lg"
+          className={`text-center border-b-2 w-2/4 border-white font-bold text-lg ${
+            isOpen ? "bg-white" : ""
+          } ${isOpen ? "text-indigo-700" : ""}`}
         >
           Penyeminar
         </h1>
       </div>
-      <div className={`mt-10 ml-5 ${isOpen ? "" : "hidden"}`}>
+      <div className={`mt-10 ml-5 ${isOpen ? "hidden" : ""}`}>
         <Seminar user={data.id} />
       </div>
-      <div className={`mt-10 ml-5 ${isOpen ? "hidden" : ""}`}>
+      <div className={`mt-10 ml-5 ${isOpen ? "" : "hidden"}`}>
         <Penyeminar />
       </div>
     </>

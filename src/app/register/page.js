@@ -49,10 +49,10 @@ export default function page() {
         })
         .then((response) => {
           // Handle respons sukses (status kode 200 OK)
+          setMessege("pendaftaran sukses , mengalihkan ke login");
           setToogle(true);
           setColor("text-green-500");
           setMessege("pendaftaran sukses , mengalihkan ke login");
-
           router.push("/login");
         })
         .catch((error) => {

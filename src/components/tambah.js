@@ -7,9 +7,13 @@ export default function Tambah(props) {
   const [isOpen, setOpen] = useState(false);
   const [status, setStatus] = useState("peserta");
   const [link, setLink] = useState("peserta");
+  const [message, setMessege] = useState("");
+  const [toogle, setToogle] = useState(false);
+  const [color, setColor] = useState("");
   const pembayaran = "belum";
   const id_user = props.user;
   const id_seminar = props.seminar.id;
+
   const handleOptionChange = (event) => {
     setStatus(event.target.value);
     console.log(status);
@@ -26,13 +30,16 @@ export default function Tambah(props) {
       })
       .then((response) => {
         // Handle respons sukses (status kode 200 OK)
-        console.log(response);
+        setToogle(true);
+        setColor("text-green-500");
+        setMessege("pendaftaran sukses");
       })
       .catch((error) => {
         if (error.response) {
           // Handle respons dengan kode status 400
-          console.log("Error Kode Status:", error.response.status);
-          console.log("Pesan Error:", error.response.data);
+          setToogle(true);
+          setColor("text-red-500");
+          setMessege("pendaftaran gagal , hanya bisa satu kali");
         } else if (error.request) {
           // Handle kesalahan permintaan (misalnya, tidak ada respons dari server)
           console.log("Tidak Ada Respons:", error.request);
@@ -148,6 +155,13 @@ export default function Tambah(props) {
                     </button>
                   </div>
                 </div>
+                <h1
+                  className={`flex capitalize pt-8 justify-center text-lg ${color} ${
+                    toogle ? "" : "hidden"
+                  } `}
+                >
+                  {message}
+                </h1>
               </form>
             </div>
           </div>

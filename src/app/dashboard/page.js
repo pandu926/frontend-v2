@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Tambah from "../../components/tambah";
 import "../../styles/seminar.css";
 import axios from "axios";
+import Pengumuman from "./pengumuman";
 import protectRoute from "@/components/protectRoute";
 
 function page({ data }) {
@@ -49,6 +50,7 @@ function page({ data }) {
 
       <div className="pengumuman ml-5 mt-10 mr-5">
         <h4 className="mb-8">Pengumuman</h4>
+        <Pengumuman />
       </div>
       <div className="seminar ml-5 mt-10 mr-5">
         <h4 className="mb-8">Daftar Seminar KP</h4>

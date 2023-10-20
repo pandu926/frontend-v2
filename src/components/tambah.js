@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Input from "./input";
 import axios from "axios";
+import Payment from "./payment";
 
 export default function Tambah(props) {
   const [isOpen, setOpen] = useState(false);
@@ -69,8 +70,12 @@ export default function Tambah(props) {
           isOpen ? "" : "hidden"
         }`}
       >
-        <div className="relative w-full max-w-2xl max-h-full capitalize">
-          <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative w-full max-w-2xl h-full rounded-md bg-white capitalize">
+          <div
+            className={` relative bg-white rounded-lg shadow dark:bg-gray-700 ${
+              toogle ? "hidden" : ""
+            }`}
+          >
             <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                 {props.seminar.nama}
@@ -164,6 +169,12 @@ export default function Tambah(props) {
                 </h1>
               </form>
             </div>
+          </div>
+          {/* pembayaran page */}
+          <div
+            className={`text-black pt-4 font-bold ${toogle ? "" : "hidden"}`}
+          >
+            <Payment />
           </div>
         </div>
       </div>

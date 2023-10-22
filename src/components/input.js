@@ -1,9 +1,9 @@
 export default function Input(props) {
   return (
-    <div>
+    <div className={`pl-10 ${props.tinggi}`}>
       <label
         htmlFor={props.id}
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        className="text-indigo-700 text-lg font-extrabold"
       >
         {props.nama}
       </label>
@@ -11,9 +11,9 @@ export default function Input(props) {
         onChange={props.change}
         type={props.type}
         id={props.id}
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        className=" w-72 h-11 block mt-3 text-indigo-600  bg-white rounded-md border-2 border-indigo-700"
         placeholder={props.placeholder}
-        required=""
+        value={props.value}
       />
     </div>
   );

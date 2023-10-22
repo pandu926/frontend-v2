@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
+import "../styles/seminar.css";
 import Cookies from "js-cookie";
 import jwt from "jsonwebtoken";
 import { useRouter } from "next/navigation";

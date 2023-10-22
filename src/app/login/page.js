@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import InputLogin from "../../components/inputLogin";
 import Link from "next/link";
-import "../../styles/navbar.css";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import "../../styles/navbar.css";
 
 export default function Login() {
   const router = useRouter();
